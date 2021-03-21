@@ -1,0 +1,18 @@
+$facebook: #3b5998;
+$twitter: #55ADEE;
+$linkedin: #2867B2;
+$instagram: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+$dribble: #ea4c89;
+$whatsup: #25D366;
+
+@import "nullstyle";
+@import "adfont";
+@import "fonts";
+
+h1 {
+  font-size: 48px;
+  text-align: center;
+  color: $twitter;
+  margin: 50px 0;
+  font-family: 'Ubuntu', sans-serif; // TODO: fix fonts
+}
