@@ -1,0 +1,36 @@
+target/
+out/
+
+src/main/webapp/WEB-INF/classes
+src/main/webapp/WEB-INF/lib
+
+*.iml
+*.ipr
+*.iws
+*.idea
+*.idea/*
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
