@@ -1,20 +1,39 @@
 package org.obrii.fitdocs.controllers;
 
-import org.obrii.fitdocs.core.ControllerBase;
-import org.obrii.fitdocs.dao.DocumentDAO;
+import org.obrii.fitdocs.dto.TimetableDto;
+import org.obrii.fitdocs.service.FieldDataService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/api")
-public class ApiController extends ControllerBase {
+import javax.persistence.EntityNotFoundException;
 
-    private final DocumentDAO documentDAO;
+@RestController
+@RequestMapping("/api/v1")
+public class ApiController {
+
+    // TODO: ...
+
+    private final FieldDataService fieldDataService;
 
     @Autowired
-    public ApiController(DocumentDAO documentDAO) {
-        this.documentDAO = documentDAO;
+    public ApiController(FieldDataService fieldDataService) {
+        this.fieldDataService = fieldDataService;
+    }
+
+    @PostMapping("/update/from-timetable")
+    public ResponseEntity<Object> updateDataFromTimetable(@RequestBody TimetableDto timetable) {
+
+        try {
+            fieldDataService.saveDataFromTimetable(timetable);
+            return ResponseEntity.ok().build();
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
 }
