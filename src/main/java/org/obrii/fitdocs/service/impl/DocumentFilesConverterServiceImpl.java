@@ -4,10 +4,11 @@ import org.apache.poi.ooxml.POIXMLException;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.obrii.fitdocs.core.DocType;
-import org.obrii.fitdocs.core.Resources;
 import org.obrii.fitdocs.entities.FieldValue;
 import org.obrii.fitdocs.service.DocumentFilesConverterService;
+import org.obrii.fitdocs.utils.DocType;
+import org.obrii.fitdocs.utils.InclusionWrapper;
+import org.obrii.fitdocs.utils.Resources;
 import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
@@ -24,41 +25,40 @@ public class DocumentFilesConverterServiceImpl implements DocumentFilesConverter
 
     @Override
     public void fillTemplate(String sourcePath, String destinationPath, FieldValue[] values, DocType docType) throws IOException {
-        XWPFDocument template = new XWPFDocument(Resources.readFileStream(sourcePath));
+        XWPFDocument template = new XWPFDocument(Resources.readFileStream(sourcePath, true));
 
         for (XWPFParagraph paragraph : template.getParagraphs()) {
-            this.replaceParagraph(paragraph, values);
+            this.replaceParagraph(paragraph, values, InclusionWrapper.bracketsWithDollar());
         }
 
-        template.write(new FileOutputStream(destinationPath));
+        template.write(new FileOutputStream(Resources.getAbsolutePath(destinationPath, true)));
     }
 
-    private void replaceParagraph(XWPFParagraph paragraph, FieldValue[] values) throws POIXMLException {
+    private void replaceParagraph(XWPFParagraph paragraph, FieldValue[] values, InclusionWrapper wrapper) throws POIXMLException {
         String find, text, runsText;
-        XWPFRun run, nextRun;
 
         for (FieldValue value : values) {
 
             String keyName = value.getKey().getText();
             text = paragraph.getText();
-            if (!text.contains("${")) return;
+            if (!text.contains(wrapper.getOpening())) return;
 
-            find = "${" + keyName + "}";
+            find = wrapper.getOpening() + keyName + wrapper.getEnding();
             if (!text.contains(find)) continue;
 
             List<XWPFRun> runs = paragraph.getRuns();
             for (int i = 0; i < runs.size(); i++) {
-                run = runs.get(i);
+                XWPFRun run = runs.get(i);
                 runsText = run.getText(0);
 
-                if (runsText.contains("${") || (runsText.contains("$") && runs.get(i + 1).getText(0).charAt(0) == '{')) {
+                if (runsText.contains(wrapper.getOpening()) || (runsText.contains("$") && runs.get(i + 1).getText(0).charAt(0) == '{')) {
 
                     //As the next run may has a closed tag and an open tag at
                     //the same time, we have to be sure that our building string
                     //has a fully completed tags
-                    while (!this.openTagCountIsEqualCloseTagCount(runsText)) {
-                        nextRun = runs.get(i + 1);
-                        runsText = runsText + nextRun.getText(0);
+                    while (!this.openTagCountIsEqualCloseTagCount(runsText, wrapper)) {
+                        XWPFRun nextRun = runs.get(i + 1);
+                        runsText += nextRun.getText(0);
                         paragraph.removeRun(i + 1);
                     }
                     run.setText(runsText.contains(find)
@@ -69,9 +69,9 @@ public class DocumentFilesConverterServiceImpl implements DocumentFilesConverter
         }
     }
 
-    private boolean openTagCountIsEqualCloseTagCount(String runText) {
-        int openTagCount = runText.split("\\$\\{", -1).length - 1;
-        int closeTagCount = runText.split("}", -1).length - 1;
-        return openTagCount == closeTagCount;
+    private boolean openTagCountIsEqualCloseTagCount(String runText, InclusionWrapper wrapper) {
+        int openTagCount = runText.split(wrapper.getOpeningRegex(), -1).length - 1;
+        int closeTagCount = runText.split(wrapper.getEndingRegex(), -1).length - 1;
+        return openTagCount == 1 && closeTagCount == 1;
     }
 }

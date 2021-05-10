@@ -3,7 +3,7 @@ package org.obrii.fitdocs.core;
 public abstract class ControllerBase {
 
     protected String badRequest400() {
-        return this.errorRedirect(4004, "Bad request.");
+        return this.errorRedirect(400, "Bad request.");
     }
 
     protected String unauthorized401() {
