@@ -16,13 +16,14 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class FieldValue extends EntityWithId {
 
+    @Column(nullable = false)
     private String value;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_FiledValues_FieldKeys"))
+    @JoinColumn(name = "fieldId")
     private FieldKey key;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_FiledValues_Documents"))
+    @JoinColumn(name = "documentId")
     private Document document;
 }

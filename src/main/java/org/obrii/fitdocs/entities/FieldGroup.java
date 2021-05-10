@@ -17,13 +17,15 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class FieldGroup extends EntityBase<Integer> {
 
+    @Column(nullable = false)
     private String name;
+
     private Integer position;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_FieldGroups_Templates"))
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "templateId")
     private Template template;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<FieldKey> keys;
 }

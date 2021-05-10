@@ -5,9 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.obrii.fitdocs.core.EntityWithId;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -18,26 +19,36 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Template extends EntityWithId {
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String sourceUrl;
-    private LocalDateTime creationDate;
-    private Short rate;
+
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private Date creationDate;
+
+    @Column(nullable = false)
+    private Byte rate;
+
+    @Column(nullable = false)
     private Boolean isRecommended;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_Templates_Categories"))
+    @JoinColumn(name = "categoryId")
     private Category category;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_Templates_Users"))
+    @JoinColumn(name = "creatorId")
     private Category creator;
 
-    @OneToMany(mappedBy = "Roles", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "template", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<FieldGroup> groups;
 
-    @OneToMany(mappedBy = "FieldKeys", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "template", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<FieldKey> keys;
 
-    @OneToMany(mappedBy = "Documents", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "template", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Document> documents;
 }

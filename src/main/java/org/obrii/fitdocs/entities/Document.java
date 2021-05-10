@@ -5,9 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.obrii.fitdocs.core.EntityWithId;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -18,17 +19,21 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Document extends EntityWithId {
 
-    private LocalDate creationDate;
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private Date creationDate;
+
+    @Column(nullable = false)
     private String resultUrl;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_Templates_Categories"))
+    @JoinColumn(name = "templateId")
     private Template template;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_Templates_Categories"))
-    private User user;
+    @JoinColumn(name = "creatorId")
+    private User creator;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "document", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<FieldValue> values;
 }

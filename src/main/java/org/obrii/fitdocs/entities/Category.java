@@ -17,13 +17,15 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Category extends EntityWithId {
 
+    @Column(nullable = false)
     private String name;
+
     private Integer position;
 
-    @OneToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_Categories_Categories"))
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "parentId")
     private Category category;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Template> templates;
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.obrii.fitdocs.core.EntityWithId;
 
 import javax.persistence.*;
@@ -27,15 +28,19 @@ public class User extends EntityWithId {
     private Boolean emailConfirmed;
     private Boolean gender;
     private LocalDate birthday;
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private LocalDateTime registrationDate;
+
     private String passwordHash;
 
-    @OneToMany(mappedBy = "Roles", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "Templates", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Template> templates;
 
-    @OneToMany(mappedBy = "Documents", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Document> documents;
 }

@@ -16,9 +16,10 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class Role extends EntityBase<Short> {
 
+    @Column(nullable = false)
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_Roles_Users"))
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
     private User user;
 }

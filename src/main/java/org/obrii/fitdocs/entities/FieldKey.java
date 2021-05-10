@@ -19,17 +19,21 @@ public class FieldKey extends EntityWithId {
 
     private Integer minLength;
     private Integer maxLength;
+
+    @Column(nullable = false)
     private Integer isRequired;
-    private Integer type;
+
+    @Column(nullable = false)
+    private Short type;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_FieldKeys_Templates"))
+    @JoinColumn(name = "templateId")
     private Template template;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_FieldKeys_FieldGroups"))
+    @JoinColumn(name = "groupId")
     private FieldGroup group;
 
-    @OneToMany(mappedBy = "FieldValues", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "key", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<FieldValue> values;
 }
