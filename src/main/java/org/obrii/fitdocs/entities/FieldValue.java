@@ -16,8 +16,9 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class FieldValue extends EntityWithId {
 
+    @Lob
     @Column(nullable = false)
-    private String value;
+    private String text;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "fieldId")

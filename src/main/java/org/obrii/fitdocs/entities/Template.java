@@ -19,10 +19,10 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Template extends EntityWithId {
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 128)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 128)
     private String sourceUrl;
 
     @CreatedDate

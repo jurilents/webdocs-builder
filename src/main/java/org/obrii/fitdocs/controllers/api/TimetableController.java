@@ -1,4 +1,4 @@
-package org.obrii.fitdocs.controllers;
+package org.obrii.fitdocs.controllers.api;
 
 import org.obrii.fitdocs.dto.TimetableDto;
 import org.obrii.fitdocs.service.FieldDataService;
@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.EntityNotFoundException;
 
 @RestController
-@RequestMapping("/api/v1")
-public class ApiController {
+@RequestMapping("/api")
+public class TimetableController {
 
     // TODO: ...
 
     private final FieldDataService fieldDataService;
 
     @Autowired
-    public ApiController(FieldDataService fieldDataService) {
+    public TimetableController(FieldDataService fieldDataService) {
         this.fieldDataService = fieldDataService;
     }
 

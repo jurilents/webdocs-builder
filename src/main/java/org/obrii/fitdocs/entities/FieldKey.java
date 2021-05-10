@@ -17,6 +17,9 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class FieldKey extends EntityWithId {
 
+    @Column(nullable = false, length = 64)
+    private String text;
+
     private Integer minLength;
     private Integer maxLength;
 

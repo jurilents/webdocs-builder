@@ -1,16 +1,19 @@
 package org.obrii.fitdocs.core;
 
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
+//import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+//import org.hibernate.annotations.TypeDef;
+//import org.hibernate.annotations.TypeDefs;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 @MappedSuperclass
-@TypeDefs({@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)})
+//@TypeDefs({@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)})
+@EntityListeners(AuditingEntityListener.class)
 public abstract class EntityBase<TId extends Serializable> {
 
     @Id

@@ -17,7 +17,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Category extends EntityWithId {
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 64)
     private String name;
 
     private Integer position;

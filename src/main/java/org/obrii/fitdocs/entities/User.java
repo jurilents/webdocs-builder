@@ -20,11 +20,18 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class User extends EntityWithId {
 
+    @Column(length = 80)
     private String firstname;
+
+    @Column(length = 80)
     private String secondname;
+
+    @Column(length = 80)
     private String middlename;
 
+    @Column(length = 64)
     private String email;
+
     private Boolean emailConfirmed;
     private Boolean gender;
     private LocalDate birthday;

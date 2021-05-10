@@ -16,7 +16,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class Role extends EntityBase<Short> {
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 32)
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

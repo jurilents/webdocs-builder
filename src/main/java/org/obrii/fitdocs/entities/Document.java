@@ -23,7 +23,7 @@ public class Document extends EntityWithId {
     @Column(nullable = false, updatable = false)
     private Date creationDate;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 128)
     private String resultUrl;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
