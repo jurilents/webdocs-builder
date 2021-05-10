@@ -4,7 +4,7 @@ import org.apache.poi.ooxml.POIXMLException;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.obrii.fitdocs.entities.FieldValue;
+import org.obrii.fitdocs.entity.FieldValue;
 import org.obrii.fitdocs.service.DocumentFilesConverterService;
 import org.obrii.fitdocs.utils.DocType;
 import org.obrii.fitdocs.utils.InclusionWrapper;

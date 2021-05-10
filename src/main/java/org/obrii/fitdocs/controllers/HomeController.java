@@ -1,8 +1,8 @@
 package org.obrii.fitdocs.controllers;
 
 import org.obrii.fitdocs.core.ControllerBase;
-import org.obrii.fitdocs.entities.FieldKey;
-import org.obrii.fitdocs.entities.FieldValue;
+import org.obrii.fitdocs.entity.FieldKey;
+import org.obrii.fitdocs.entity.FieldValue;
 import org.obrii.fitdocs.service.DocumentFilesConverterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

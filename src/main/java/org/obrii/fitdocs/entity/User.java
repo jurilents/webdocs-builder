@@ -1,4 +1,4 @@
-package org.obrii.fitdocs.entities;
+package org.obrii.fitdocs.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

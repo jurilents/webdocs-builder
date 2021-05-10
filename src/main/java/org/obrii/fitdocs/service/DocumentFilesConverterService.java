@@ -1,7 +1,7 @@
 package org.obrii.fitdocs.service;
 
 import org.obrii.fitdocs.utils.DocType;
-import org.obrii.fitdocs.entities.FieldValue;
+import org.obrii.fitdocs.entity.FieldValue;
 
 import java.io.IOException;
 
