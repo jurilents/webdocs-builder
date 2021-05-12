@@ -43,4 +43,10 @@ public class HomeController extends ControllerBase {
         return "home/index";
     }
 
+    @GetMapping("/about")
+    public String about() { return "/about"; }
+
+    @GetMapping("/developers")
+    public String developers() { return "/developers"; }
+
 }
