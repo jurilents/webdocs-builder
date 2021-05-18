@@ -1,0 +1,416 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans' , sans-serif;
+}
+body{
+  background: #1E7795;
+  z-index:-111111;
+  display: flex;
+  flex-direction: column;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+/** Menu **/
+.menu{
+  background: white;
+  width: 90%;
+  margin-top: 1.5%;
+  z-index: 1000;
+  position: relative;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: row;
+}
+.menu button{
+  font-size:0.85vw;
+}
+.Kub{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 1px solid #C4C4C4;
+  padding-bottom: 0.7%;
+padding-top: 0.4%;
+}
+.Kub div{
+margin-bottom: -4%;
+display: flex; 
+justify-content: center;
+}
+.Kub div a {
+  width: 40%;
+}
+button{
+  background: none;
+  border: none;
+}
+.menu1{
+  position:absolute;
+  bottom: -582%;
+  visibility:hidden;
+  padding:1%;
+  background:#ffffff;
+  border:1px solid #C4C4C4;
+  display: flex; flex-direction: column;
+  width: 16%;
+}
+.Kub:hover .menu1{
+  display: flex; flex-direction: column;
+  position:absolute;
+  visibility: visible;
+  z-index:9999;
+}
+.menu1 p{
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 400;
+  padding-top: 7%;
+}
+.Number1{
+  padding-bottom: 15%;
+}
+.Number1:last-child{
+  padding-bottom: 5%;
+}
+.FirstNumber1{
+  margin-top:12%;
+}
+.FirstNumber1 div{
+  margin-left:17%;
+}
+.colors{
+  padding-top: 1%;
+}
+.colors img{
+  width: 75%;
+}
+.Black{
+height: 70%;
+}
+.Menu1LINE{
+  width: 100%;
+  padding-top: 3%;
+}
+.Menu1IMG{
+  width: 40%;
+  margin-left: -72%;
+}
+.menu1 input{
+  width: 50%;
+  margin-left: -48%;
+  border: none;
+  outline: none;
+}
+
+.menu2{
+  bottom: -173%;
+  width: 10%;
+}
+.menu2 .Menu1IMG{
+  width: 110%;
+  padding-left: 40%;
+}
+.menu2 input{
+  margin-left: -15%;
+}
+.FirstNumber2{
+  margin-top:-1%;
+}
+
+.menu5{
+  width: 24%;
+  bottom: -332%;
+}
+.table{
+  padding-right: 1%;
+  margin-left: -1.5%;
+  padding-bottom: -0.1%;
+}
+.table:first-child{
+  margin-top: -2%;
+}
+.table a{
+  padding: 2.4%;
+  width: 100%;
+}
+.Blu{
+  visibility: hidden;
+  position: absolute;
+}
+.Black1:hover .Blu{
+  visibility: visible;
+  display: flex;
+  margin: 0;
+  padding: 0%;
+  width: 9.9%;
+  z-index: 456667777777;
+}
+.table img{
+  width: 140%;
+}
+
+.menu6{
+  bottom: -131%;
+}
+.menu6 img{
+  width: 250%;
+  padding-bottom: 10%;
+}
+.razdel123{
+  margin-bottom: 15%;
+}
+.razdel2{
+  margin-top: -3%;
+}
+.razdel3{
+  margin-top: -3%;
+}
+.razdel4{
+  margin-bottom: -8%;
+}
+
+.menu8 img{
+  width: 35%;
+}
+.menu8{
+  bottom: -370%;
+  width: 18%;
+}
+.menu8 input{
+margin-left: 1%;
+}
+.menu8 p{
+  font-weight: 600;
+  font-size: 1.4vw;
+  margin-bottom: -4%;
+}
+.menu8IMG{
+  margin-left: -26%;
+}
+.menu8DIV{
+  display: flex; flex-direction: column; align-items: flex-start; margin-left: 4%;
+  margin-top: -10%;
+}
+
+.menu9{
+  bottom: -250%;
+}
+.LineCol{
+  width: 10%;
+}
+
+.menu10{
+  width: 20%;
+  left: 40%;
+}
+.menu10 div{
+  margin-top: 8%;
+}
+
+/** Menu **/
+
+
+
+
+/** "Блоки" и собственно сам документ **/
+
+.Block2{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1.8%;
+  height: 89vh;
+  }
+  
+
+  /** "Блоки" **/
+
+  .block1{
+    background: white;
+    width: 32%;
+    position: relative;
+    margin-right: 2%;
+  }
+  h2{
+    font-size: 1.7vw;
+    font-weight: 600;
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+  .Bloki{
+    display: flex;
+    flex-direction: row;
+  }
+  .Razdelitel{
+    width: 100%;
+    margin-left: -0.25%;
+    position: relative;
+  }
+  .Krestik{
+    width: 5%;
+    margin-left: -60%;
+    position: relative;
+    left: -3%;
+    margin-top: -7%;
+    float: right;
+  }
+  .Dejstvia{
+    overflow-y: scroll;
+    height: 71vh;
+  }
+  .Dejstvia::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F0F0F0;
+  }
+  .Dejstvia::-webkit-scrollbar-thumb{
+    background-color: #34BDEC;
+  }
+
+  /** "Блоки" **/
+
+
+  /** Сам документ **/
+
+  .block2{
+    background: white;
+    width: 66%;
+    position: relative;
+  }
+  .Dokumentik{
+    margin-left: 2.8%;
+    margin-top: 3.5%;
+    display: flex;
+  }
+  .But{
+    background: white;
+    border: none;
+  }
+  .Nazva{
+    font-size: 1.7vw;
+    font-weight: 600;
+    border-bottom: black solid;
+    padding-bottom: 1%;
+    padding-left:1% ;
+    padding-right: 1%;
+    z-index: 10;
+  }
+  .Novy{
+    padding-bottom: 1%;
+  }
+  .Novy a{
+    font-size: 1.7vw;
+    font-weight: 500;
+    color: #C4C4C4;
+    position: relative;
+    left: 3%;
+  }
+  .Logotipik{
+    position: absolute;
+    right: -90px;
+    margin-top: -3%;
+  }
+  .linia{
+    margin-left: 2.8%;
+    width: 94%;
+    position: relative;
+    z-index: 1;
+    top: -1.5%;
+  }
+
+  .Pole{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 65vh;
+}
+.Pole::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F0F0F0;
+}
+.Pole::-webkit-scrollbar-thumb{
+  background-color: #34BDEC;
+}
+
+  /** Справа мини менюшка **/
+
+  .Minimenu{
+    background: white;
+    width: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 91%;
+    position: fixed;
+
+  }
+  .Minimenu img{
+    padding-bottom: 25%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Kart{
+    margin-left: 23%;
+    width: 105%;
+    padding-top: 9%;
+  }
+  .Kartinka {
+    width: 80%;
+  }
+  .Miniline{
+    width: 80%;
+  }
+  .Back{
+    padding-top: 25%;
+  }
+
+  /** Справа мини менюшка **/
+  /** Сам документ **/
+  /** "Блоки" и собственно сам документ **/
+
+
+
+  
+
+
+
+  
+  @media (min-width: 1300px){
+    .Logotipik{
+      margin-top: -2%;
+    }
+  }
+    
+  @media (min-width: 1500px){
+    .Logotipik{
+      right: -80px;
+    }
+  }
+  
+  @media (min-width: 1600px){
+    .Logotipik{
+      margin-top: -0,5%;
+    }
+  }
+  
+  @media (min-width: 1600px){
+    .Logotipik{
+      margin-top: -1%;
+    }
+  }

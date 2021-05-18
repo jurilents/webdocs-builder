@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <th:block th:include="shared/partial/head :: Head"></th:block>
+    <th:block th:include="shared/partial/css :: Css"></th:block>
+</head>
+
+<body>
+    <th:block th:include="shared/partial/header :: Header"></th:block>
+
+    <div layout:fragment="page">
+        <p>Please change me :(</p>
+    </div>
+
+    <th:block th:include="shared/partial/footer :: Footer"></th:block>
+
+    <div layout:fragment="Script"></div>
+</body>
+</html>

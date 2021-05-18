@@ -1,15 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index Page</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="shared/layouts/_Layout">
 
-<h1>HEllo, Hell!</h1>
-<p>Lorem ipsum</p>
+    <div layout:fragment="page">
+        <!-- Page Content -->
+        <div class="page__content">
+            <div class="preview">
+                <div class="preview__outer">
+                    <div class="preview__rectangle"></div>
+                    <picture><source srcset="img/prev/border.webp" type="image/webp"><img src="img/prev/border.png" class="preview__border"></picture>
 
-<script src="/js/main.js"></script>
-</body>
+                    <div class="container">
+                        <div class="preview__inner">
+                            <div class="preview__text">
+                                <div class="preview__logo">
+                                    DocUni
+                                </div>
+                                <div class="preview__description">
+                                    Універсальний <br> онлайн конструктор документів
+                                </div>
+                                <a class="preview__button">
+                                    + Створити шаблон
+                                </a>
+                            </div>
+
+                            <div class="preview__image">
+                                <picture><source srcset="img/prev/prev-img.webp" type="image/webp"><img src="img/prev/prev-img.jpg" alt=""></picture>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs">
+                <div class="container">
+                    <div class="docs__inner">
+                        <h2 class="docs__title">Шаблони документів</h2>
+
+                        <div class="docs__cards--container" data-target-for-slide-button>
+                            <div class="docs__cards" data-context-menu-structure="standard">
+
+                                <a href="#" class="docs__card docs__card--plus iNeedContextMenu">
+									<span class="docs__blue">
+										<svg width="115" height="115" viewBox="0 0 115 115" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+											<path
+                                                    d="M49.5 0H64.8827V49.9906H114.5V64.9906H64.8827V114.991H49.7942V64.9906H0V49.9906H49.5V0Z"
+                                                    fill="white" />
+										</svg>
+									</span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card  iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card  iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card  iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card  iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card  iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card  iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <button type="button" class="docs__button showMorebutton">
+                            Показати все
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs">
+                <div class="container">
+                    <div class="docs__inner">
+                        <div class="docs__heading">
+                            <h2 class="docs__title">Сховище документів</h2>
+                            <a href="#" class="docs__link">
+                                <picture><source srcset="img/icons/eye.svg" type="image/webp"><img src="img/icons/eye.svg" alt="eye"></picture>
+                            </a>
+                        </div>
+
+                        <div class="docs__cards--container">
+                            <div class="docs__cards" data-context-menu-structure="storage">
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+                                <a href="#" class="docs__card iNeedContextMenu">
+                                    <span class="docs__white"></span>
+                                    <span class="docs__text">
+										<span class="docs__name">Новий шаблон</span>
+										<span class="docs__amount">0 шт</span>
+									</span>
+                                </a>
+
+
+                            </div>
+                        </div>
+
+                        <a href="#" type="button" class="docs__button">
+                            Показати все
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div layout:fragment="Script">
+        <script th:src="@{/js/script.min.js}"></script>
+    </div>
+
 </html>

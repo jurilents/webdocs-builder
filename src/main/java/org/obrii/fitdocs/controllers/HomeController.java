@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.IOException;
 
 @Controller
-public class HomeController extends ControllerBase {
+public class  HomeController extends ControllerBase {
 
     private final DocumentFilesConverterService filesConverterService;
 
@@ -21,7 +21,7 @@ public class HomeController extends ControllerBase {
     }
 
     @GetMapping("/")
-    public String index() {
+    public String hello(){
         return "home/index";
     }
 
@@ -40,7 +40,7 @@ public class HomeController extends ControllerBase {
                 "static\\documents\\result.docx",
                 new FieldValue[]{val1});
 
-        return "home/index";
+        return "/index";
     }
 
     @GetMapping("/about")
