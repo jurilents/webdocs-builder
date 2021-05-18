@@ -3,7 +3,9 @@
 
 <head>
     <th:block th:include="shared/partial/head :: Head"></th:block>
-    <th:block th:include="shared/partial/css :: Css"></th:block>
+    <div layout:fragment="Css">
+        <link rel="stylesheet" href="css/style.css" th:href="@{css/style.css}">
+    </div>
 </head>
 
 <body>

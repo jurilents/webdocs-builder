@@ -3,13 +3,16 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="shared/layouts/_Layout">
 
-    <div layout:fragment="page">
+<div layout:fragment="page">
+    <div class="page">
         <!-- Page Content -->
         <div class="page__content">
             <div class="preview">
                 <div class="preview__outer">
                     <div class="preview__rectangle"></div>
-                    <picture><source srcset="img/prev/border.webp" type="image/webp"><img src="img/prev/border.png" class="preview__border"></picture>
+                    <picture>
+                        <source srcset="img/prev/border.webp" type="image/webp">
+                        <img src="img/prev/border.png" class="preview__border"></picture>
 
                     <div class="container">
                         <div class="preview__inner">
@@ -20,13 +23,15 @@
                                 <div class="preview__description">
                                     Універсальний <br> онлайн конструктор документів
                                 </div>
-                                <a class="preview__button">
+                                <a th:href = "@{/templates}" class="preview__button">
                                     + Створити шаблон
                                 </a>
                             </div>
 
                             <div class="preview__image">
-                                <picture><source srcset="img/prev/prev-img.webp" type="image/webp"><img src="img/prev/prev-img.jpg" alt=""></picture>
+                                <picture>
+                                    <source srcset="img/prev/prev-img.webp" type="image/webp">
+                                    <img src="img/prev/prev-img.jpg" alt=""></picture>
                             </div>
                         </div>
                     </div>
@@ -47,7 +52,7 @@
                                              xmlns="http://www.w3.org/2000/svg">
 											<path
                                                     d="M49.5 0H64.8827V49.9906H114.5V64.9906H64.8827V114.991H49.7942V64.9906H0V49.9906H49.5V0Z"
-                                                    fill="white" />
+                                                    fill="white"/>
 										</svg>
 									</span>
                                     <span class="docs__text">
@@ -128,7 +133,9 @@
                         <div class="docs__heading">
                             <h2 class="docs__title">Сховище документів</h2>
                             <a href="#" class="docs__link">
-                                <picture><source srcset="img/icons/eye.svg" type="image/webp"><img src="img/icons/eye.svg" alt="eye"></picture>
+                                <picture>
+                                    <source srcset="img/icons/eye.svg" type="image/webp">
+                                    <img src="img/icons/eye.svg" alt="eye"></picture>
                             </a>
                         </div>
 
@@ -211,9 +218,10 @@
             </div>
         </div>
     </div>
+</div>
 
-    <div layout:fragment="Script">
-        <script th:src="@{/js/script.min.js}"></script>
-    </div>
+<div layout:fragment="Script">
+    <script th:src="@{/js/script.min.js}"></script>
+</div>
 
 </html>
