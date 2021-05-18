@@ -19,12 +19,12 @@ import java.util.List;
 public class DocumentFilesConverterServiceImpl implements DocumentFilesConverterService {
 
     @Override
-    public void fillTemplate(String sourcePath, String destinationPath, FieldValue[] values) throws IOException {
+    public void fillTemplate(String sourcePath, String destinationPath, List<FieldValue> values) throws IOException {
         this.fillTemplate(sourcePath, destinationPath, values, DocType.Word);
     }
 
     @Override
-    public void fillTemplate(String sourcePath, String destinationPath, FieldValue[] values, DocType docType) throws IOException {
+    public void fillTemplate(String sourcePath, String destinationPath, List<FieldValue> values, DocType docType) throws IOException {
         XWPFDocument template = new XWPFDocument(Resources.readFileStream(sourcePath, true));
 
         for (XWPFParagraph paragraph : template.getParagraphs()) {
@@ -34,12 +34,12 @@ public class DocumentFilesConverterServiceImpl implements DocumentFilesConverter
         template.write(new FileOutputStream(Resources.getAbsolutePath(destinationPath, true)));
     }
 
-    private void replaceParagraph(XWPFParagraph paragraph, FieldValue[] values, InclusionWrapper wrapper) throws POIXMLException {
+    private void replaceParagraph(XWPFParagraph paragraph, List<FieldValue> values, InclusionWrapper wrapper) throws POIXMLException {
         String find, text, runsText;
 
         for (FieldValue value : values) {
 
-            String keyName = value.getKey().getText();
+            String keyName = value.getKey().getName();
             text = paragraph.getText();
             if (!text.contains(wrapper.getOpening())) return;
 

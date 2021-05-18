@@ -21,4 +21,8 @@ public abstract class ControllerBase {
     private String errorRedirect(int code, String message) {
         return String.format("redirect:/error?code=%d&msg=%s", code, message);
     }
+
+    protected String redirectTo(String route) {
+        return "redirect:" + route;
+    }
 }

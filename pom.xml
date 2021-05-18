@@ -84,8 +84,11 @@
             <artifactId>thymeleaf-layout-dialect</artifactId>
             <version>2.5.3</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.4</version>
+        </dependency>
 
         <!-- Word/PDF library -->
         <dependency>
