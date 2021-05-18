@@ -1,12 +1,10 @@
 package org.obrii.fitdocs.controllers;
 
-import org.apache.commons.collections4.set.ListOrderedSet;
 import org.obrii.fitdocs.core.ControllerBase;
 import org.obrii.fitdocs.dao.DocumentDao;
 import org.obrii.fitdocs.dao.TemplateDao;
 import org.obrii.fitdocs.dto.DocumentCreateDto;
 import org.obrii.fitdocs.dto.DocumentFieldDto;
-import org.obrii.fitdocs.dto.TemplateFieldDto;
 import org.obrii.fitdocs.entity.*;
 import org.obrii.fitdocs.service.DocumentFilesConverterService;
 import org.obrii.fitdocs.service.DocumentService;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.*;
 
@@ -47,7 +46,7 @@ public class DocumentController extends ControllerBase {
     public String index(Model model) {
         Iterable<Document> data = documentDao.findAll();
         model.addAttribute("document", data);
-        return "documents/index";
+        return "documents/index"; // TODO fix all views
     }
 
     @GetMapping("/documents/create/{templateId}")
@@ -63,7 +62,7 @@ public class DocumentController extends ControllerBase {
     }
 
     @PostMapping("/documents/create/{templateId}")
-    public String createAction(@PathVariable int templateId, @RequestBody DocumentCreateDto body, Model model) {
+    public String createAction(@PathVariable int templateId, @RequestBody DocumentCreateDto body, Model model) throws IOException {
         Optional<Template> template = this.templateDao.findById(templateId);
 
         if (template.isPresent()) {
@@ -74,6 +73,7 @@ public class DocumentController extends ControllerBase {
                 model.addAttribute("errors", errors);
                 return MessageFormat.format("documents/create/{0}", templateId);
             } else {
+                // TODO: look for this code
                 List<FieldValue> values = new ArrayList<>();
 
                 for (DocumentFieldDto field : body.getFields()) {
@@ -83,8 +83,8 @@ public class DocumentController extends ControllerBase {
                 }
 
                 Document document = this.documentService.createForAnonimousUser(template.get(), values);
-                String fulldestPath = "static/documents/" + document.getResultUrl();
-                this.filesConverterService.fillTemplate(template.get().getSourceUrl(), fulldestPath, values);
+                String fullDestPath = "static/documents/" + document.getResultUrl();
+                this.filesConverterService.fillTemplate(template.get().getSourceUrl(), fullDestPath, values);
             }
 
             return this.redirectTo("/documents");

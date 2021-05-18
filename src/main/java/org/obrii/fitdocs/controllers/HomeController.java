@@ -40,6 +40,7 @@ public class HomeController extends ControllerBase {
     }
 
 
+    @Deprecated
     @GetMapping("/test")
     public String test() throws IOException {
         FieldValue val1 = new FieldValue();
