@@ -18,7 +18,7 @@ import java.util.Set;
 public class FieldKey extends EntityWithId {
 
     @Column(nullable = false, length = 64)
-    private String text;
+    private String name;
 
     private Integer minLength;
     private Integer maxLength;

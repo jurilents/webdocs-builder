@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="shared/_layout">
 
@@ -139,7 +140,7 @@
                             </a>
                         </div>
 
-                        <div class="docs__cards--container">
+                        <div class="docs__cards--container" th:each="user : ${users}" th:remove="tag">
                             <div class="docs__cards" data-context-menu-structure="storage">
                                 <a href="#" class="docs__card iNeedContextMenu">
                                     <span class="docs__white"></span>

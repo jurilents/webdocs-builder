@@ -1,12 +1,16 @@
 package org.obrii.fitdocs.service;
 
+import org.obrii.fitdocs.entity.Document;
 import org.obrii.fitdocs.entity.FieldValue;
 import org.obrii.fitdocs.entity.Template;
 import org.obrii.fitdocs.entity.User;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface DocumentService {
 
-    void createForAnonimousUser(Template template, FieldValue[] values);
+    Document createForAnonimousUser(Template template, List<FieldValue> values); // TODO implement me
 
-    void createForUser(User user);
+    Document createForUser(User user, Template template, List<FieldValue> values);
 }

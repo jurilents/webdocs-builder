@@ -1,6 +1,5 @@
 package org.obrii.fitdocs.controllers.api;
 
-import org.obrii.fitdocs.dto.TimetableDto;
 import org.obrii.fitdocs.service.FieldDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
 public class TimetableController {
-
-    // TODO: ...
 
     private final FieldDataService fieldDataService;
 
@@ -25,7 +24,7 @@ public class TimetableController {
     }
 
     @PostMapping("/update/from-timetable")
-    public ResponseEntity<Object> updateDataFromTimetable(@RequestBody TimetableDto timetable) {
+    public ResponseEntity<Object> updateDataFromTimetable(@RequestBody List<Map<String, String>> timetable) {
 
         try {
             fieldDataService.saveDataFromTimetable(timetable);
