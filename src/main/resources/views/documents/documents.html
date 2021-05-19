@@ -5,14 +5,12 @@
       layout:decorate="shared/_layout">
 
 <div layout:fragment="page">
-    <!-- Page Content -->
-
     <div class="page__content">
 
         <div class="docs">
             <div class="container">
                 <div class="docs__inner">
-                    <h2 class="docs__title">Шаблони документів</h2>
+                    <h2 class="docs__title">Документи</h2>
 
                     <div class="docs__cards" data-context-menu-structure="layout">
                         <a href="#" class="docs__card iNeedContextMenu">
@@ -29,7 +27,13 @@
                                 <span class="docs__date">1432 днів тому</span>
                                 </span>
                         </a>
-
+                        <a href="#" class="docs__card iNeedContextMenu">
+                            <span class="docs__white"></span>
+                            <span class="docs__text">
+                                    <span class="docs__name">Новий шаблон</span>
+                                <span class="docs__date">0 днів тому</span>
+                                </span>
+                        </a>
                         <a th:each="template : ${templateList}" class="docs__card iNeedContextMenu">
                             <span class="docs__white"></span>
                             <span class="docs__text">
@@ -44,11 +48,12 @@
 <!--                                <span class="docs__date">0 днів тому</span>-->
 <!--                                </span>-->
 <!--                        </a>-->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>
 </html>

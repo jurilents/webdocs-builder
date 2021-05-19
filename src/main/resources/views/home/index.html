@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="shared/layouts/_Layout">
+      layout:decorate="shared/_layout">
 
 <div layout:fragment="page">
     <div class="page">
@@ -60,13 +60,13 @@
 									</span>
                                 </a>
 
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
+<!--                                <th:block th:with="iterator =${0}" th:if="${iterator}<${12}" class="docs__card iNeedContextMenu">-->
+<!--                                    <span class="docs__white"></span>-->
+<!--                                    <span class="docs__text">-->
+<!--                                    <span class="docs__name" th:text="${template.Name}"></span>-->
+<!--                                <span class="docs__date" th:text="Створено':' ${template.Date}"></span>-->
+<!--                                </span>-->
+<!--                                </th:block>-->
 
                                 <a href="#" class="docs__card  iNeedContextMenu">
                                     <span class="docs__white"></span>
