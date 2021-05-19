@@ -4,24 +4,25 @@ import lombok.Data;
 import org.obrii.fitdocs.core.DataTransferObject;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Data
-public class TemplateCreateDto implements DataTransferObject {
+public class TemplateCreateDto implements DataTransferObject, Serializable {
 
     private MultipartFile sourceFile;
-    private String name;
+    private String title;
     private List<TemplateFieldDto> fields;
 
     @Override
     public List<String> validate() {
         List<String> errors = new ArrayList<>();
 
-        if (Objects.equals(this.getName(), "")) {
+        if (Objects.equals(this.getTitle(), "")) {
             errors.add("Назва закоротка");
-        } else if (this.getName().length() > 128) {
+        } else if (this.getTitle().length() > 128) {
             errors.add("Назва задовга");
         }
 

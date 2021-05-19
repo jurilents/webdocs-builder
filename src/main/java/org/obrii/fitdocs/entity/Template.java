@@ -22,6 +22,9 @@ public class Template extends EntityWithId {
     @Column(nullable = false, length = 128)
     private String name;
 
+    @Column(nullable = false, length = 64)
+    private String code;
+
     @Column(nullable = false, length = 128)
     private String sourceUrl;
 

@@ -6,11 +6,12 @@ import org.obrii.fitdocs.entity.Template;
 import org.obrii.fitdocs.entity.User;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface DocumentService {
 
-    Document createForAnonimousUser(Template template, List<FieldValue> values); // TODO implement me
+    Document createForAnonymousUser(Template template, List<FieldValue> values) throws IOException; // TODO implement me
 
     Document createForUser(User user, Template template, List<FieldValue> values);
 }

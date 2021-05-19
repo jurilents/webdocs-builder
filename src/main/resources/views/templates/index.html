@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="shared/_layout">
+      layout:decorate="shared/_layout" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <div layout:fragment="page">
     <!-- Page Content -->
@@ -15,13 +15,11 @@
                     <h2 class="docs__title">Шаблони документів</h2>
 
                     <div class="docs__cards" data-context-menu-structure="layout">
-                        <a href="#" class="docs__card iNeedContextMenu">
+                        <a href="/templates/create" class="docs__card iNeedContextMenu">
                                 <span class="docs__blue">
                                     <svg width="115" height="115" viewBox="0 0 115 115" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                                d="M49.5 0H64.8827V49.9906H114.5V64.9906H64.8827V114.991H49.7942V64.9906H0V49.9906H49.5V0Z"
-                                                fill="white"/>
+                                        <path d="M49.5 0H64.8827V49.9906H114.5V64.9906H64.8827V114.991H49.7942V64.9906H0V49.9906H49.5V0Z" fill="white"/>
                                     </svg>
                                 </span>
                             <span class="docs__text">
@@ -30,20 +28,20 @@
                                 </span>
                         </a>
 
-                        <a th:each="template : ${templateList}" class="docs__card iNeedContextMenu">
+                        <a th:each="template : ${templates}" class="docs__card iNeedContextMenu">
                             <span class="docs__white"></span>
                             <span class="docs__text">
                                     <span class="docs__name" th:text="${template.Name}"></span>
                                 <span class="docs__date" th:text="Створено':' ${template.Date}"></span>
                                 </span>
                         </a>
-<!--                        <a href="#" class="docs__card iNeedContextMenu">-->
-<!--                            <span class="docs__white"></span>-->
-<!--                            <span class="docs__text">-->
-<!--                                    <span class="docs__name">Новий шаблон</span>-->
-<!--                                <span class="docs__date">0 днів тому</span>-->
-<!--                                </span>-->
-<!--                        </a>-->
+                        <!--                        <a href="#" class="docs__card iNeedContextMenu">-->
+                        <!--                            <span class="docs__white"></span>-->
+                        <!--                            <span class="docs__text">-->
+                        <!--                                    <span class="docs__name">Новий шаблон</span>-->
+                        <!--                                <span class="docs__date">0 днів тому</span>-->
+                        <!--                                </span>-->
+                        <!--                        </a>-->
                     </div>
                 </div>
             </div>

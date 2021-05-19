@@ -12,14 +12,9 @@ import org.obrii.fitdocs.entity.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class TemplatesController extends ControllerBase {
@@ -41,23 +36,24 @@ public class TemplatesController extends ControllerBase {
     @GetMapping("/templates/create")
     public String create(Model model) {
         model.addAttribute("fieldTypes", FieldTypes.values());
+        model.addAttribute("body", new TemplateCreateDto());
         return "templates/create";
     }
 
     @PostMapping("/templates/create")
-    public String createAction(@RequestBody TemplateCreateDto body, Model model) {
+    public String createAction(@ModelAttribute TemplateCreateDto body, Model model) {
         List<String> errors = body.validate();
         if (errors.size() > 0) { // has validation errors
             model.addAttribute("errors", errors);
         } else {
             String extension = ".docx";
             Template template = new Template();
-            template.setName(body.getName());
+            template.setName(body.getTitle());
             template.setSourceUrl(UUID.randomUUID() + extension);
             template.setRate((byte) 0); // TODO
             template.setIsRecommended(true); // TODO
 
-            Set<FieldKey> keys = new ListOrderedSet<>();
+            List<FieldKey> keys = new ArrayList<>();
             List<FieldGroup> groups = new ArrayList<>();
 
             for (TemplateFieldDto field : body.getFields()) {
@@ -85,7 +81,7 @@ public class TemplatesController extends ControllerBase {
                 keys.add(fieldKey);
             }
 
-            template.setKeys(keys);
+            template.setKeys(new HashSet<>(keys));
         }
         return this.redirectTo("/templates");
     }
@@ -106,7 +102,7 @@ public class TemplatesController extends ControllerBase {
 //    }
 
     @PostMapping("/templates/{id}/delete")
-    public String delete(int id){
+    public String delete(@PathVariable int id){
         this.templateDao.deleteById(id);
         return "/templates";
     }

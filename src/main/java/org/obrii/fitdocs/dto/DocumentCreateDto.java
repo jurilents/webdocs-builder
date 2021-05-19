@@ -8,6 +8,8 @@ import java.util.List;
 @Data
 public class DocumentCreateDto implements DataTransferObject {
 
+    private String title;
+
     private List<DocumentFieldDto> fields;
 
     @Override

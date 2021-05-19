@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create template</title>
+</head>
+<body>
+
+<main>
+    <form action="#" th:action="@{/templates/create}" th:object="${body}" method="post" enctype="multipart/form-data">
+
+        <input type="file" th:field="*{sourceFile}" accept=".docx">
+
+        <input type="text" th:field="*{title}">
+
+        <hr>
+
+        <div id="fields-wrapper"></div>
+
+        <hr>
+
+        <button id="add-field__button" type="button">Add field</button>
+
+        <button type="submit">Create</button>
+
+    </form>
+</main>
+
+<script>
+
+    const wrapper = document.getElementById('fields-wrapper');
+    var i = 0;
+
+    document.getElementById('add-field__button').onclick = () => {
+        const field = document.createElement('div');
+
+        field.innerHTML = `
+            <input type="text" name="fields[${i}][name]">
+            <input type="text" name="fields[${i}][code]">
+            <input type="number" name="fields[${i}][minLength]">
+            <input type="number" name="fields[${i}][maxLength]">
+            <input type="checkbox" name="fields[${i}][isRequired]">
+            <input type="text" name="fields[${i}][groupName]">
+            <select>
+                <option value="1">Text</option>
+                <option value="2" disabled>Number</option>
+            </select>`;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'X';
+        deleteButton.onclick = () => {
+            wrapper.removeChild(field);
+        }
+
+        field.appendChild(deleteButton);
+        wrapper.appendChild(field);
+        i++;
+    }
+
+</script>
+
+</body>
+</html>

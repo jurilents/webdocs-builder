@@ -28,18 +28,12 @@ public class DocumentController extends ControllerBase {
     private final DocumentDao documentDao;
     private final TemplateDao templateDao;
     private final DocumentService documentService;
-    private final DocumentFilesConverterService filesConverterService;
 
     @Autowired
-    public DocumentController(
-            DocumentDao documentDao,
-            TemplateDao templateDao,
-            DocumentService documentService, // TODO: add service
-            DocumentFilesConverterService filesConverterService) {
+    public DocumentController(DocumentDao documentDao, TemplateDao templateDao, DocumentService documentService) {
         this.documentDao = documentDao;
         this.templateDao = templateDao;
         this.documentService = documentService;
-        this.filesConverterService = filesConverterService;
     }
 
     @GetMapping("/documents")
@@ -55,7 +49,7 @@ public class DocumentController extends ControllerBase {
 
         if (template.isPresent()) {
             model.addAttribute("template", template.get());
-            return this.redirectTo("/documents");
+            return "documents/create";
         } else {
             return this.notFound404();
         }
@@ -74,6 +68,7 @@ public class DocumentController extends ControllerBase {
                 return MessageFormat.format("documents/create/{0}", templateId);
             } else {
                 // TODO: look for this code
+
                 List<FieldValue> values = new ArrayList<>();
 
                 for (DocumentFieldDto field : body.getFields()) {
@@ -82,9 +77,7 @@ public class DocumentController extends ControllerBase {
                     values.add(fieldValue);
                 }
 
-                Document document = this.documentService.createForAnonimousUser(template.get(), values);
-                String fullDestPath = "static/documents/" + document.getResultUrl();
-                this.filesConverterService.fillTemplate(template.get().getSourceUrl(), fullDestPath, values);
+                Document document = this.documentService.createForAnonymousUser(template.get(), values);
             }
 
             return this.redirectTo("/documents");

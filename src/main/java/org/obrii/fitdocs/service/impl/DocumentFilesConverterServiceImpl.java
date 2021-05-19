@@ -31,6 +31,7 @@ public class DocumentFilesConverterServiceImpl implements DocumentFilesConverter
             this.replaceParagraph(paragraph, values, InclusionWrapper.bracketsWithDollar());
         }
 
+        destinationPath = "static/documents/" + destinationPath;
         template.write(new FileOutputStream(Resources.getAbsolutePath(destinationPath, true)));
     }
 

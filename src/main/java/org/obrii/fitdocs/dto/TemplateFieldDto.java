@@ -9,6 +9,7 @@ import java.util.List;
 public class TemplateFieldDto implements DataTransferObject {
 
     private String name;
+    private String code;
     private Integer minLength;
     private Integer maxLength;
     private Integer isRequired;
