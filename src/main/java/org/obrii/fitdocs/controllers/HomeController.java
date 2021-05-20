@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class HomeController extends ControllerBase {
@@ -43,17 +45,33 @@ public class HomeController extends ControllerBase {
     @Deprecated
     @GetMapping("/test")
     public String test() throws IOException {
-        FieldValue val1 = new FieldValue();
-        val1.setText("Hello World");
-        FieldKey key1 = new FieldKey();
-        key1.setName("workProgram");
-        val1.setKey(key1);
+//        FieldValue val1 = new FieldValue();
+//        val1.setText("Hello World");
+//        FieldKey key1 = new FieldKey();
+//        key1.setName("workProgram");
+//        val1.setKey(key1);
 
-//        this.filesConverterService.fillTemplate(
-//                // "static\\templates\\РНП -2020 - Веб-дизайн (МІТ)_robotsystem.doc",
-//                "static\\templates\\other.docx",
-//                "static\\documents\\result.docx",
-//                new FieldValue[]{});
+        FieldValue val1 = new FieldValue();
+        val1.setText("НАШ");
+        FieldValue val2 = new FieldValue();
+        val2.setText("ФАКУЛЬТЕТ");
+
+        FieldKey key1 = new FieldKey();
+        key1.setName("faculty");
+        FieldKey key2 = new FieldKey();
+        key2.setName("kafedra");
+
+        val1.setKey(key1);
+        val2.setKey(key2);
+
+        List<FieldValue> fieldValues = new ArrayList<>();
+        fieldValues.add(val1);
+        fieldValues.add(val2);
+
+        this.filesConverterService.fillTemplate(
+                // "static\\templates\\РНП -2020 - Веб-дизайн (МІТ)_robotsystem.doc",
+                "static\\templates\\other.docx",
+                "static\\documents\\result.docx", fieldValues);
 
         return "home/index";
     }
