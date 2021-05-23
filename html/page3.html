@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="js/popper.min.js"></script>    
+    <link rel="stylesheet" href="../css/style_p3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+   
+</head>
+
+<body>
+   
+  
+    
+
+
+ <!--"Блоки" и собственно сам документ-->
+
+ <div class="Block2">
+
+  <!--"Блоки"-->
+
+  <div class=" block1" style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column;">
+    <div class="Bloki">
+     <h2>Розділи</h2>
+     </div>
+  <a href=""><img class="Krestik" src="../img/page3/Krestik.jfif" alt=""></a>
+  <img class="Razdelitel"
+  src="../img/page3/razdelitel.png" alt="">
+    </div>
+
+    <div class="block1_rozdily">
+
+      <div>
+        
+        <div>
+        <a href="">Розділ 1</a>
+        <a href=""><img class="block1_rozdily_img1" src="../img/page3/+.jpg" alt=""></a>
+        </div>
+
+        <span></span>
+
+      </div>
+     
+      <div>
+        <div>
+
+        <a href="">Розділ 2</a>
+        <a href=""><img class="block1_rozdily_img2" src="../img/page3/+.jpg" alt=""></a>
+        </div>
+
+        <span></span>
+
+      </div>
+
+      <div>
+
+        <div>
+        <a href="">Розділ 3</a>
+        <a href=""><img class="block1_rozdily_img3" src="../img/page3/+.jpg" alt=""></a>
+        </div>
+
+        <span></span></div>
+
+      </div>
+
+    <div class="block1_button">
+      <button>ЗБЕРЕГТИ</button>
+      <button>СКАЧАТИ DOCX</button>
+    </div>
+
+  </div>
+
+  <!--"Блоки"-->
+
+  
+  <!--Сам документ-->
+
+  <div class="block2">
+
+    <div style="display: flex; flex-direction: column;">
+
+    <div class="Dokumentik">
+
+    <button class="But Nazva">
+    <a href="">Назва докуме...</a>
+    </button>
+
+    <div class="Logotipik">
+     <div class="Logo"><a href="" title="На главную"><img src="../img/page3/logo.png" alt="" width="60%"></a></div class="Logo">
+    </div>
+
+   </div>
+
+   <img class="linia" src="../img/page3/linia.png" alt="">
+
+    </div>
+
+    <div class="Pole">
+    <div class="Pole_form" style="display: flex; flex-direction: column;">
+
+      <form action="" >
+        <p>Назва поля</p>
+        <td><textarea class="input-content"  id="area" cols="30" rows="10" placeholder="Ваш текст..."></textarea></td>
+        <p class="character-count"></p>
+
+      </form>
+
+      <form action="">
+        <p>Назва поля</p>
+        <input type="number" placeholder="1234">
+      </form>
+
+      <form action="">
+        <p>Назва поля</p>
+        <input type="datetime-local" >
+      </form>
+
+      <form action="">
+        <p>Назва поля</p>
+        <select>
+          <option>Опция1</option>
+          <option>Опция2</option>
+          <option>Опция3</option>
+          <option>Опция4</option>
+        </select>
+      </form>
+
+    </div>
+
+    </div>
+
+  </div>
+
+
+  
+
+  </div>
+
+  <!--Сам документ-->
+
+
+ </div>
+
+ <!--"Блоки" и собственно сам документ-->
+
+
+
+ <script type="text/javascript">
+for (var i = 0; i < document.getElementsByClassName("input-content").length; i++) {
+    document.getElementsByClassName("input-content")[i].onkeyup = function (i) {
+        return function () {
+            console.log(this);
+            var text_max = 99;
+            var text_length = this.value.length;
+            var text_remaining = text_max - text_length;
+            document.getElementsByClassName("character-count")[i].innerHTML = "Character count:" + text_length + "/" + text_max;
+        };
+    }(i);
+}
+ </script>
+
+<script>
+  area.value = localStorage.getItem('area');
+  area.oninput = () => {
+    localStorage.setItem('area', area.value)
+  };
+</script>
+
+</body>
+
+</html>
