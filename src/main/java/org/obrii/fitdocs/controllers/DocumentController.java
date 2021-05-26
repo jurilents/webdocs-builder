@@ -49,7 +49,7 @@ public class DocumentController extends ControllerBase {
 
         if (template.isPresent()) {
             model.addAttribute("template", template.get());
-            return "documents/create";
+            return "documents/constructor";
         } else {
             return this.notFound404();
         }
