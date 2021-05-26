@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +36,9 @@ public class HomeController extends ControllerBase {
 
     @GetMapping("/")
     public String index(Model model) {
-
-        model.addAttribute("documents", this.documentDao.findAll());
         model.addAttribute("templates", this.templateDao.findAll());
+        model.addAttribute("documents", this.documentDao.findAll());
+        model.addAttribute("dateFormatter", new SimpleDateFormat("dd MMMM yyyy"));
         return "home/index";
     }
 

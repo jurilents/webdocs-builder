@@ -24,7 +24,7 @@
                                 <div class="preview__description">
                                     Універсальний <br> онлайн конструктор документів
                                 </div>
-                                <a th:href = "@{/templates}" class="preview__button">
+                                <a th:href = "@{/templates/construct}" class="preview__button">
                                     + Створити шаблон
                                 </a>
                             </div>
@@ -69,52 +69,14 @@
 <!--                                </span>-->
 <!--                                </th:block>-->
 
-                                <a href="#" class="docs__card  iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
+                                <a th:each="template : ${templates}" class="docs__card iNeedContextMenu">
+                                    <a th:href="@{/templates/${template.getId()}}" class="docs__card  iNeedContextMenu">
+                                        <span class="docs__white"></span>
+                                        <span class="docs__text">
+										<span class="docs__name" th:text="${template.getName()}">Новий шаблон</span>
+										<span class="docs__amount" th:text='${dateFormatter.format(template.getCreationDate())}'></span>
 									</span>
-                                </a>
-
-                                <a href="#" class="docs__card  iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card  iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card  iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card  iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card  iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
+                                    </a>
                                 </a>
 
                             </div>
@@ -133,90 +95,16 @@
                     <div class="docs__inner">
                         <div class="docs__heading">
                             <h2 class="docs__title">Сховище документів</h2>
-                            <a href="#" class="docs__link">
+                            <a th:href="@{/documents/archive}" class="docs__link">
                                 <picture>
                                     <source srcset="img/icons/eye.svg" type="image/webp">
                                     <img src="img/icons/eye.svg" alt="eye"></picture>
                             </a>
                         </div>
-
-                        <div class="docs__cards--container" th:each="user : ${users}" th:remove="tag">
-                            <div class="docs__cards" data-context-menu-structure="storage">
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-                                <a href="#" class="docs__card iNeedContextMenu">
-                                    <span class="docs__white"></span>
-                                    <span class="docs__text">
-										<span class="docs__name">Новий шаблон</span>
-										<span class="docs__amount">0 шт</span>
-									</span>
-                                </a>
-
-
-                            </div>
-                        </div>
-
-                        <a href="#" type="button" class="docs__button">
-                            Показати все
-                        </a>
-
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

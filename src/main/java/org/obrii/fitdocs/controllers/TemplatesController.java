@@ -1,6 +1,5 @@
 package org.obrii.fitdocs.controllers;
 
-import org.apache.commons.collections4.set.ListOrderedSet;
 import org.obrii.fitdocs.core.ControllerBase;
 import org.obrii.fitdocs.core.FieldTypes;
 import org.obrii.fitdocs.dao.TemplateDao;
@@ -33,56 +32,23 @@ public class TemplatesController extends ControllerBase {
         return "templates/index";
     }
 
-    @GetMapping("/templates/create")
+    @GetMapping("/templates/construct")
     public String create(Model model) {
         model.addAttribute("fieldTypes", FieldTypes.values());
         model.addAttribute("body", new TemplateCreateDto());
-        return "templates/create";
+        return "templates/construct";
     }
 
-    @PostMapping("/templates/create")
+    @PostMapping("/templates/construct")
     public String createAction(@ModelAttribute TemplateCreateDto body, Model model) {
         List<String> errors = body.validate();
+
         if (errors.size() > 0) { // has validation errors
             model.addAttribute("errors", errors);
         } else {
-            String extension = ".docx";
-            Template template = new Template();
-            template.setName(body.getTitle());
-            template.setSourceUrl(UUID.randomUUID() + extension);
-            template.setRate((byte) 0); // TODO
-            template.setIsRecommended(true); // TODO
 
-            List<FieldKey> keys = new ArrayList<>();
-            List<FieldGroup> groups = new ArrayList<>();
-
-            for (TemplateFieldDto field : body.getFields()) {
-                FieldKey fieldKey = new FieldKey();
-                fieldKey.setName(field.getName());
-                fieldKey.setMaxLength(field.getMaxLength());
-                fieldKey.setMinLength(field.getMinLength());
-                fieldKey.setIsRequired(field.getIsRequired());
-                fieldKey.setType(field.getType());
-
-                boolean groupNotExist = true;
-                for (FieldGroup group : groups) {
-                    if (group.getName().equals(field.getGroupName())) {
-                        fieldKey.setGroup(group);
-                        groupNotExist = false;
-                    }
-                }
-
-                if (groupNotExist) {
-                    FieldGroup fieldGroup = new FieldGroup();
-                    fieldGroup.setName(field.getGroupName());
-                    groups.add(fieldGroup);
-                }
-
-                keys.add(fieldKey);
-            }
-
-            template.setKeys(new HashSet<>(keys));
         }
+
         return this.redirectTo("/templates");
     }
 

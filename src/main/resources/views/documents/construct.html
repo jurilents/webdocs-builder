@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="shared/_layout">
 
@@ -64,7 +65,7 @@
 
             <div class="block1_button">
                 <button>ЗБЕРЕГТИ</button>
-                <button>СКАЧАТИ DOCX</button>
+                <a target="_blank" th:href="@{/documents/${document.getId()}/download}">СКАЧАТИ DOCX</a>
             </div>
 
         </div>
