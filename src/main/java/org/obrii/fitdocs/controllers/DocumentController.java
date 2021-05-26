@@ -5,8 +5,10 @@ import org.obrii.fitdocs.dao.DocumentDao;
 import org.obrii.fitdocs.dao.TemplateDao;
 import org.obrii.fitdocs.dto.DocumentCreateDto;
 import org.obrii.fitdocs.dto.DocumentFieldDto;
-import org.obrii.fitdocs.entity.*;
-import org.obrii.fitdocs.service.DocumentFilesConverterService;
+import org.obrii.fitdocs.entity.Document;
+import org.obrii.fitdocs.entity.FieldKey;
+import org.obrii.fitdocs.entity.FieldValue;
+import org.obrii.fitdocs.entity.Template;
 import org.obrii.fitdocs.service.DocumentService;
 import org.obrii.fitdocs.utils.Resources;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class DocumentController extends ControllerBase {
@@ -90,8 +95,8 @@ public class DocumentController extends ControllerBase {
                 return MessageFormat.format("documents/create/{0}", templateId);
             } else {
                 // TODO: look for this code
-
                 List<FieldValue> values = new ArrayList<>();
+                Set<FieldKey> keys = template.get().getKeys();
 
                 for (DocumentFieldDto field : body.getFields()) {
                     FieldValue fieldValue = new FieldValue();
@@ -99,7 +104,11 @@ public class DocumentController extends ControllerBase {
                     values.add(fieldValue);
                 }
 
+                for(int i = 0; i<values.size(); i++)
+                    values.get(i).setKey((FieldKey) keys.stream().toArray()[i]);
+
                 Document document = this.documentService.createForAnonymousUser(template.get(), values);
+                documentDao.save(document);
 
                 return this.redirectTo(String.format("/documents/%d/download", document.getId()));
             }
