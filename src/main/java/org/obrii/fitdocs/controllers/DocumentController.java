@@ -62,6 +62,21 @@ public class DocumentController extends ControllerBase {
         }
     }
 
+    @GetMapping("/documents/construct/{templateId}/{documentId}")
+    public String create(@PathVariable int templateId, @PathVariable int documentId, Model model) {
+        Optional<Template> template = this.templateDao.findById(templateId);
+        Optional<Document> document = this.documentDao.findById(documentId);
+
+        if (template.isPresent() && document.isPresent()) {
+            model.addAttribute("template", template.get());
+            model.addAttribute("document", document.get());
+            return "documents/construct";
+
+        } else {
+            return this.notFound404();
+        }
+    }
+
     @PostMapping("/documents/construct/{templateId}")
     public String createAction(@PathVariable int templateId, @RequestBody DocumentCreateDto body, Model model) throws IOException {
         Optional<Template> template = this.templateDao.findById(templateId);
