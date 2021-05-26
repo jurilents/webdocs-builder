@@ -1,5 +1,6 @@
 package org.obrii.fitdocs.controllers;
 
+import lombok.val;
 import org.obrii.fitdocs.core.ControllerBase;
 import org.obrii.fitdocs.dao.DocumentDao;
 import org.obrii.fitdocs.dao.TemplateDao;
@@ -59,6 +60,7 @@ public class DocumentController extends ControllerBase {
     public String createAction(@PathVariable int templateId, @RequestBody DocumentCreateDto body, Model model) throws IOException {
         Optional<Template> template = this.templateDao.findById(templateId);
 
+
         if (template.isPresent()) {
             model.addAttribute("template", template.get());
 
@@ -68,8 +70,8 @@ public class DocumentController extends ControllerBase {
                 return MessageFormat.format("documents/create/{0}", templateId);
             } else {
                 // TODO: look for this code
-
                 List<FieldValue> values = new ArrayList<>();
+                Set<FieldKey> keys = template.get().getKeys();
 
                 for (DocumentFieldDto field : body.getFields()) {
                     FieldValue fieldValue = new FieldValue();
@@ -77,7 +79,11 @@ public class DocumentController extends ControllerBase {
                     values.add(fieldValue);
                 }
 
+                for(int i = 0; i<values.size(); i++) values.get(i).setKey((FieldKey) keys.stream().toArray()[i]);
+
                 Document document = this.documentService.createForAnonymousUser(template.get(), values);
+                
+                documentDao.save(document);
             }
 
             return this.redirectTo("/documents");
