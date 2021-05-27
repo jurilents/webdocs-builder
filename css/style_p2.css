@@ -1,0 +1,411 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans' , sans-serif;
+}
+body{
+  background: #1E7795;
+  z-index:-111111;
+  display: flex;
+  flex-direction: column;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+/** Menu **/
+
+
+button{
+  background: none;
+  border: none;
+}
+
+
+
+/** Menu **/
+
+
+
+
+/** "Блоки" и собственно сам документ **/
+
+.Block2{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1.8%;
+  height: 89vh;
+  }
+  
+
+  /** "Блоки" **/
+
+  .block1{
+    background: white;
+    width: 32%;
+    position: relative;
+    margin-right: 2%;
+  }
+  h2{
+    font-size: 1.7vw;
+    font-weight: 600;
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+  .Bloki{
+    display: flex;
+    flex-direction: row;
+  }
+  .Razdelitel{
+    width: 100%;
+    margin-left: -0.25%;
+    position: relative;
+  }
+  .Krestik{
+    width: 5%;
+    margin-left: -80%;
+    position: relative;
+    left: -3%;
+    margin-top: -7%;
+    float: right;
+  }
+  .Dejstvia{
+    overflow-y: scroll;
+    height: 78vh;
+  }
+  .Dejstvia::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F0F0F0;
+  }
+  .Dejstvia::-webkit-scrollbar-thumb{
+    background-color: #34BDEC;
+  }
+  .block1_rozdily{
+    display: flex; 
+    flex-direction: column; 
+  }
+  .block1_rozdily div div{
+    margin-left: 5%;
+    margin-top: 6%;
+    font-weight: 600;
+  }
+  .block1_rozdily div span{
+    width: 90%;
+    margin-left: 5%;
+    display: block;
+    height: 1px;
+    background: #C4C4C4;
+    color:#C4C4C4 ;
+    margin-top: 0.5%;
+  }
+  .block1_rozdily img{
+    width: 5%;
+    float: right;
+    margin-right: 5.5%;
+  }
+  .block1_button{
+    margin-top: 52%;
+    display: flex; flex-direction: column;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  .button_first{
+   position: relative;
+   top: 3%;
+   padding-left: 0%;
+   padding-right: 5%;
+   margin-bottom: -3%;
+  }
+  .button_first button{
+    text-align: center;
+  }
+  .block1_button button{
+    padding-top: 7%;
+    padding-bottom: 7%;
+    background: #34BDEC;
+    color: white;
+    font-weight: 700;
+    font-size: 1.4vw;
+  }
+  .block1_button button:hover{
+    background: #14a7d9;
+  }
+  .block1_button button:first-child{
+    margin-bottom: 5%;
+  }
+
+  /** "Блоки" **/
+
+
+  /** Сам документ **/
+
+  .block2{
+    background: white;
+    width: 66%;
+    position: relative;
+  }
+  .Dokumentik{
+    margin-left: 2.8%;
+    margin-top: 3.5%;
+    display: flex;
+  }
+  .But{
+    background: white;
+    border: none;
+  }
+  .Nazva{
+    font-size: 1.7vw;
+    font-weight: 600;
+    border-bottom: black solid;
+    padding-bottom: 1%;
+    padding-left:1% ;
+    padding-right: 1%;
+    z-index: 10;
+  }
+  .Novy{
+    padding-bottom: 1%;
+  }
+  .Novy a{
+    font-size: 1.7vw;
+    font-weight: 500;
+    color: #C4C4C4;
+    position: relative;
+    left: 3%;
+  }
+  .Logotipik{
+    position: absolute;
+    right: -90px;
+    margin-top: -3%;
+  }
+  .linia{
+    margin-left: 2.8%;
+    width: 94%;
+    position: relative;
+    z-index: 1;
+    top: -1.5%;
+  }
+
+  .Pole{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 78vh;
+}
+.Pole::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F0F0F0;
+}
+.Pole::-webkit-scrollbar-thumb{
+  background-color: #34BDEC;
+}
+.Pole_form{
+padding-right: 50%;
+padding-left: 3%;
+padding-top: 2%;
+}
+.Pole_form form{
+  display: flex;
+  flex-direction: column;
+  padding-top: 4%;
+}
+.opt1{
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  visibility: hidden;
+  background-color: white;
+  z-index: 500000000;
+}
+.button_hover:hover .opt1{
+  margin-top: 1%;
+  visibility: visible;
+  display: flex; 
+  flex-direction: column; 
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  z-index: 500000000;
+}
+.button_hover button{
+  width: 100%;
+  padding-left: 1%;
+  display: flex;
+  align-items: flex-start;
+  z-index: 500000000;
+}
+.button_hover button:hover{
+  background: #34BDEC;
+}
+.button_hover button:hover a{
+  color: #ffffff;
+  z-index: 500000000;
+}
+.button_hover .Ti:hover{
+  background: white;
+  color: black;
+}
+.button_hover .Ti:hover a{
+  color: black;
+}
+.Ti{
+  border: 1px solid black;
+}
+.button_hover_arrow{
+  width: 2.4%;
+  margin-left: 95.5%;
+  margin-top: -2.8%;
+  display: flex;
+}
+.Forma{
+  border: 1px solid black;
+  padding: 5%;
+  height: 65%;
+  margin-top: 3%;
+  background: white;
+}
+.Forma_input{
+  margin-bottom: 5%;
+  color: black;
+  width: 100%;
+}
+.Forma_input::placeholder{
+  color: black;
+}
+.content {
+  border: 1px solid black;
+  background: white;
+  margin-top: -12%;
+  margin-left: -6%;
+  padding-top: 4.5%;
+  padding-right: 7%;
+  padding-left: 5%;
+  margin-right: -6%;
+  z-index: -1000;
+  height: 140%;
+}
+.content input{
+  width: 102.5%;
+}
+.content div{
+  padding-top: 3%;
+}
+.content div p{
+  font-size: 14px;
+  width: 80%;
+  margin-bottom: 10%;
+}
+.content div input{
+  margin-bottom: 4.5%;
+}
+.div_input{
+  margin-left: -10%;
+  width: 70%;
+  margin-top: -0.2%;
+}
+.box{
+  margin-left: -48.5%;
+  margin-top: 3.5%;
+}
+
+.Group_placeholder{
+  border: none;
+}
+.Group_placeholder::placeholder{
+font-size: 1.15vw;
+color: black;
+font-weight: 700;
+}
+
+
+.Dobavit_button{
+  background-color: white;
+  width: 30%;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+.Dobavit_button a{
+  padding-top: 7%;
+  padding-bottom: 7%;
+  padding-left: 12%;
+  padding-right: 12%;
+  background: #34BDEC;
+  color: white;
+  width: 140%;
+  font-weight: 700;
+  font-size: 1.4vw;
+}
+.Dobavit_button a:hover{
+  background: #14a7d9;
+}
+
+.Forma1{
+  margin-top: 10%;
+  width: 47%;
+  margin-left: 3%;
+  height: 20%;
+}
+.content1 {
+  width: 128%;
+  background-color: white;
+  height: 1060%;
+  margin-left: -14%;
+  margin-top: -24%;
+}
+.content2 {
+  width: 128%;
+  background-color: white;
+  margin-left: -14%;
+  height: 1750%;
+  margin-top: -24%;
+}
+  /** Справа мини менюшка **/
+
+  
+
+  /** Справа мини менюшка **/
+  /** Сам документ **/
+  /** "Блоки" и собственно сам документ **/
+
+
+
+  
+
+
+
+  
+  @media (min-width: 1300px){
+    .Logotipik{
+      margin-top: -2%;
+    }
+  }
+    
+  @media (min-width: 1500px){
+    .Logotipik{
+      right: -80px;
+    }
+  }
+  
+  @media (min-width: 1600px){
+    .Logotipik{
+      margin-top: -0,5%;
+    }
+  }
+  
+  @media (min-width: 1600px){
+    .Logotipik{
+      margin-top: -1%;
+    }
+  }
