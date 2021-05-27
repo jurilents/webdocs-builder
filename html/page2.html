@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="js/popper.min.js"></script>    
+    <link rel="stylesheet" href="../css/style_p2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+   
+</head>
+
+<body>
+   
+  
+    
+
+
+ <!--"Блоки" и собственно сам документ-->
+
+ <div class="Block2">
+
+  <!--"Блоки"-->
+
+  <div class=" block1" style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column;">
+    <div class="Bloki">
+     <h2>Групи</h2>
+     </div>
+  <a href=""><img class="Krestik" src="../img/page2/krestik.jfif" alt=""></a>
+  <img class="Razdelitel"
+  src="../img/page2/razdelitel.png" alt="">
+    </div>
+
+    <div class="block1_rozdily">
+
+      <div>
+
+        <div class="block1_button button_first">
+          <button>ЗАВАНТАЖИТИ ФАЙЛ ШАБЛОНУ</button>
+        </div>
+        
+        <div>
+          <input class="Group_placeholder" type="text" placeholder="Група 1">
+        <a href=""><img style="width: 4.65%;" class="block1_rozdily_img1" src="../img/page2/delete.jfif" alt=""></a>
+        <a href=""><img style="margin-right:3.5%;" class="block1_rozdily_img2" src="../img/page2/+.jpg" alt=""></a>
+        </div>
+
+        <span></span>
+
+      </div>
+     
+      <div>
+
+        <div>
+        <input class="Group_placeholder" type="text" placeholder="Група 2">
+        <a href=""><img style="width: 4.65%;" class="block1_rozdily_img1" src="../img/page2/delete.jfif" alt=""></a>
+        <a href=""><img style="margin-right:3.5%;" class="block1_rozdily_img2" src="../img/page2/+.jpg" alt=""></a>
+        </div>
+
+        <span></span>
+
+      </div>
+
+      <div>
+
+        <div>
+          <input class="Group_placeholder" type="text" placeholder="Футер">
+        <a href=""><img style="width: 4.65%;" class="block1_rozdily_img1" src="../img/page2/delete.jfif" alt=""></a>
+        <a href=""><img style="margin-right:3.5%;" class="block1_rozdily_img2" src="../img/page2/+.jpg" alt=""></a>
+        </div> 
+
+        <span></span></div>
+
+      </div>
+
+    <div class="block1_button">
+      <button>ЗАВАНТАЖИТИ DOCX</button>
+    </div>
+
+  </div>
+
+  <!--"Блоки"-->
+
+  
+  <!--Сам документ-->
+
+  <div class="block2">
+
+    <div style="display: flex; flex-direction: column;">
+
+    <div class="Dokumentik">
+
+    <button class="But Nazva">
+    <a href="">Назва докуме...</a>
+    </button>
+
+    <div class="Logotipik">
+     <div class="Logo"><a href="" title="На главную"><img src="../img/page2/logo.png" alt="" width="60%"></a></div class="Logo">
+    </div>
+
+   </div>
+
+   <img class="linia" src="../img/page2/linia.png" alt="">
+
+    </div>
+
+    <div class="Pole">
+    <div class="Pole_form" style="display: flex; flex-direction: column;">
+
+      <!--
+      <form action="" >
+        <p>Назва поля</p>
+        <td><textarea class="input-content"  id="area" cols="30" rows="10" placeholder="Ваш текст..."></textarea></td>
+        <p class="character-count"></p>
+
+      </form>
+
+
+
+      <form action="">
+        <p>Назва поля</p>
+        <input type="number" placeholder="1234">
+      </form>
+
+      <form action="">
+        <p>Назва поля</p>
+        <input type="datetime-local" >
+      </form>
+-->
+
+       <div class="Forma">
+        
+        <input name="field[][name]" class="Forma_input" type="text" placeholder="Назва поля">
+        
+
+          <div class="button_hover">
+        <button class="Ti">
+          <a href="">Тип поля</a>
+        </button>
+        <img class="button_hover_arrow" src="../img/page2/arrow.jfif" alt="">
+
+        <div class="opt1">
+
+          <button class="wrapper" style="margin-top:1% ;">
+            <a href="" style="width: 600%; display: flex; align-items: flex-start;">Тип поля</a>
+          </button>
+
+          <button>
+            <a id="link1" href="#" style="width: 600%; display: flex; align-items: flex-start;">Текст</a>
+          </button>
+
+          <button>
+            <a href="#" id="link2" style="width: 600%; display: flex; align-items: flex-start;">Цифри</a>
+          </button>
+
+          <button>
+            <a href="#" id="link3" style="width: 600%; display: flex; align-items: flex-start;">Дата</a>
+          </button>
+
+        </div>
+        
+        
+         
+
+        
+          </div>
+          
+          <div class="content" id="content1" style="display: none; ">
+            
+            <input type="text" style="width: 101.5%;" placeholder="${Ключ в документе}">
+
+            <div style="display: flex; flex-direction: row;">
+
+            <div style="display: flex; flex-direction: column;"><p>Мін. довж.</p><p>Макс. довж.</p><p>Обов'язкове</p><p>Приватна інформація</p></div>
+
+            <div class="div_input" style="display: flex; flex-direction: column; align-items: flex-start;"><input type="number"><input type="number"><input type="checkbox" class="box"><input style="margin-top: 4.2%;" type="checkbox"class="box"></div>
+
+          </div>
+
+           </div>
+
+          <div class="content" id="content2" style="display: none; ">
+            
+            <input type="text" style="width: 101.5%;" placeholder="${Ключ в документе}">
+
+            <div style="display: flex; flex-direction: row;">
+
+            <div style="display: flex; flex-direction: column;"><p>Мін. знач.</p><p>Макс. знач.</p><p>Обов'язкове</p><p>Приватна інформація</p></div>
+
+            <div class="div_input" style="display: flex; flex-direction: column; align-items: flex-start;">
+              <input type="number"><input type="number"><input type="checkbox" class="box"><input style="margin-top: 4.2%;" type="checkbox"class="box">
+            </div>
+
+          </div>
+
+           </div>
+
+           <div class="content" id="content3" style="display: none; height: 150%; ">
+            
+            <input type="text" style="width: 101.5%;" placeholder="${Ключ в документе}">
+
+            <div style="display: flex; flex-direction: row;">
+
+            <div style="display: flex; flex-direction: column;">
+              <p style="margin-bottom: 28%;">Рік</p>
+              <p style="margin-bottom: 28%;">Місяць</p>
+              <p style="margin-bottom: 29%;">День</p>
+              <p style="margin-bottom: 9%;">Обов'язкове</p>
+              <p>Підставити поточну дату</p>
+            </div>
+
+            <div class="div_input div_input_last" style="display: flex; flex-direction: column; align-items: flex-start;">
+              <input type="text" placeholder="${Ключ в документе}" style="margin-top: 1%;">
+              <select name="" id="" style="width: 102.5%;">
+              <option value="">Формат</option>
+              <option value="">Формат</option>
+              <option value="">Формат</option>
+              <option value="">Формат</option>
+              </select>
+              <input type="text" placeholder="${Ключ в документе}" style="margin-top: 5%;">
+              <select name="" id="" style="width: 102.5%;">
+                <option value="">Формат</option>
+                <option value="">Формат</option>
+                <option value="">Формат</option>
+                <option value="">Формат</option>
+                </select>
+              <input type="text" placeholder="${Ключ в документе}" style="margin-top: 5%;">
+              <select name="" id="" style="width: 102.5%;" >
+                <option value="">Формат</option>
+                <option value="">Формат</option>
+                <option value="">Формат</option>
+                <option value="">Формат</option>
+                </select>
+              <input type="checkbox" class="box" style="margin-top: 6%;">
+              <input style="margin-top: 4.2%;" type="checkbox"class="box">
+            </div>
+
+          </div>
+
+           </div>
+
+    </div>
+
+    </div>
+
+
+
+    
+<button class="Dobavit_button" >
+  <a href="#" id="link_button">ДОДАТИ БЛОК</a>
+</button>
+<div class="Forma Forma1" id="content_button" style="display: none;">
+        
+  <input name="field[][name]" class="Forma_input" type="text" placeholder="Назва поля"  style=" position: relative; top: -110%;">
+  
+
+    <div class="button_hover" style=" position: relative; top: -110%;">
+  <button class="Ti">
+    <a href="">Тип поля</a>
+  </button>
+  <img class="button_hover_arrow" src="../img/page2/arrow.jfif" alt="">
+
+  <div class="opt1">
+
+    <button class="wrapper" style="margin-top:1% ;">
+      <a href="" style="width: 600%; display: flex; align-items: flex-start;">Тип поля</a>
+    </button>
+
+    <button>
+      <a id="link11" href="#" style="width: 600%; display: flex; align-items: flex-start;">Текст</a>
+    </button>
+
+    <button>
+      <a href="#" id="link21" style="width: 600%; display: flex; align-items: flex-start;">Цифри</a>
+    </button>
+
+    <button>
+      <a href="#" id="link31" style="width: 600%; display: flex; align-items: flex-start;">Дата</a>
+    </button>
+
+  </div>
+  
+  
+    </div>
+    
+    <div class="content content1" id="content11" style="display: none; ">
+      
+      <input type="text" style="width: 101.5%;" placeholder="${Ключ в документе}">
+
+      <div style="display: flex; flex-direction: row;">
+
+      <div style="display: flex; flex-direction: column;"><p>Мін. довж.</p><p>Макс. довж.</p><p>Обов'язкове</p><p>Приватна інформація</p></div>
+
+      <div class="div_input" style="display: flex; flex-direction: column; align-items: flex-start;"><input type="number"><input type="number"><input type="checkbox" class="box"><input style="margin-top: 4.2%;" type="checkbox"class="box"></div>
+
+    </div>
+
+     </div>
+
+    <div class="content content1" id="content21" style="display: none; ">
+      
+      <input type="text" style="width: 101.5%;" placeholder="${Ключ в документе}">
+
+      <div style="display: flex; flex-direction: row;">
+
+      <div style="display: flex; flex-direction: column;"><p>Мін. знач.</p><p>Макс. знач.</p><p>Обов'язкове</p><p>Приватна інформація</p></div>
+
+      <div class="div_input" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <input type="number"><input type="number"><input type="checkbox" class="box"><input style="margin-top: 4.2%;" type="checkbox"class="box">
+      </div>
+
+    </div>
+
+     </div>
+
+     <div class="content content2" id="content31" style="display: none;">
+      
+      <input type="text" style="width: 101.5%;" placeholder="${Ключ в документе}">
+
+      <div style="display: flex; flex-direction: row;">
+
+      <div style="display: flex; flex-direction: column;">
+        <p style="margin-bottom: 28%;">Рік</p>
+        <p style="margin-bottom: 28%;">Місяць</p>
+        <p style="margin-bottom: 29%;">День</p>
+        <p style="margin-bottom: 9%;">Обов'язкове</p>
+        <p>Підставляти поточну дату</p>
+      </div>
+
+      <div class="div_input div_input_last" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <input type="text" placeholder="${Ключ в документе}" style="margin-top: 1%;">
+        <select name="" id="" style="width: 102.5%;">
+        <option value="">Формат</option>
+        <option value="">Формат</option>
+        <option value="">Формат</option>
+        <option value="">Формат</option>
+        </select>
+        <input type="text" placeholder="${Ключ в документе}" style="margin-top: 5%;">
+        <select name="" id="" style="width: 102.5%;">
+          <option value="">Формат</option>
+          <option value="">Формат</option>
+          <option value="">Формат</option>
+          <option value="">Формат</option>
+          </select>
+        <input type="text" placeholder="${Ключ в документе}" style="margin-top: 5%;">
+        <select name="" id="" style="width: 102.5%;" >
+          <option value="">Формат</option>
+          <option value="">Формат</option>
+          <option value="">Формат</option>
+          <option value="">Формат</option>
+          </select>
+        <input type="checkbox" class="box" style="margin-top: 6%;">
+        <input style="margin-top: 4.2%;" type="checkbox"class="box">
+      </div>
+
+    </div>
+
+     </div>
+
+     </div>
+
+  </div>
+
+
+  
+
+  </div>
+
+  <!--Сам документ-->
+
+
+ </div>
+ 
+
+ <!--"Блоки" и собственно сам документ-->
+<script>
+
+2
+$(document).ready(function (){$('a#link1').click(function (e){$(this).toggleClass('active');$('#content1').toggle();e.stopPropagation();}); 
+        $('body').click(function () {var link = $('a#link1');});});
+
+</script>
+
+<script>
+
+  2
+  $(document).ready(function (){$('a#link2').click(function (e){$(this).toggleClass('active');$('#content2').toggle();e.stopPropagation();}); 
+          $('body').click(function () {var link = $('a#link2');});});
+  
+  </script>
+
+<script>
+
+  2
+  $(document).ready(function (){$('a#link3').click(function (e){$(this).toggleClass('active');$('#content3').toggle();e.stopPropagation();}); 
+          $('body').click(function () {var link = $('a#link3');});});
+  
+  </script>
+
+<script>
+
+  2
+  $(document).ready(function (){$('a#link_button').click(function (e){$(this).toggleClass('active');$('#content_button').toggle();e.stopPropagation();}); 
+          $('body').click(function () {var link = $('a#link_button');});});
+  
+  </script>
+
+<script>
+
+  2
+  $(document).ready(function (){$('a#link11').click(function (e){$(this).toggleClass('active');$('#content11').toggle();e.stopPropagation();}); 
+          $('body').click(function () {var link = $('a#link11');});});
+  
+  </script>
+  
+  <script>
+  
+    2
+    $(document).ready(function (){$('a#link21').click(function (e){$(this).toggleClass('active');$('#content21').toggle();e.stopPropagation();}); 
+            $('body').click(function () {var link = $('a#link21');});});
+    
+    </script>
+  
+  <script>
+  
+    2
+    $(document).ready(function (){$('a#link31').click(function (e){$(this).toggleClass('active');$('#content31').toggle();e.stopPropagation();}); 
+            $('body').click(function () {var link = $('a#link31');});});
+    
+    </script>
+  
+
+ <script type="text/javascript">
+for (var i = 0; i < document.getElementsByClassName("input-content").length; i++) {
+    document.getElementsByClassName("input-content")[i].onkeyup = function (i) {
+        return function () {
+            console.log(this);
+            var text_max = 99;
+            var text_length = this.value.length;
+            var text_remaining = text_max - text_length;
+            document.getElementsByClassName("character-count")[i].innerHTML = "Character count:" + text_length + "/" + text_max;
+        };
+    }(i);
+}
+ </script>
+
+<script>
+  area.value = localStorage.getItem('area');
+  area.oninput = () => {
+    localStorage.setItem('area', area.value)
+  };
+</script>
+
+</body>
+
+</html>
